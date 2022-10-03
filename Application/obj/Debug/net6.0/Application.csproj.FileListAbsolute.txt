@@ -1,0 +1,15 @@
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/bin/Debug/net6.0/Application.deps.json
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/bin/Debug/net6.0/Application.dll
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/bin/Debug/net6.0/Application.pdb
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/bin/Debug/net6.0/Domain.dll
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/bin/Debug/net6.0/Domain.pdb
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.AssemblyInfoInputs.cache
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.AssemblyInfo.cs
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.csproj.CoreCompileInputs.cache
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.csproj.CopyComplete
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.dll
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/refint/Application.dll
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/Application.pdb
+/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/obj/Debug/net6.0/ref/Application.dll
