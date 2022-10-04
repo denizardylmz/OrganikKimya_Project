@@ -8,7 +8,10 @@ public class AddStockGroupNumberHandler : AbstractHandler
     {
         if (request.StockGroupNumber != null)
         {
-            base.QueryMaker.AddFilter(f => f.StockGroupNumber == request.StockGroupNumber);
+            foreach (var data in request.StockGroupNumber)
+            {
+                base.QueryMaker.AddFilter(f => f.StockGroupNumber == data);    
+            }
             base.Handle(request);
         }
         else

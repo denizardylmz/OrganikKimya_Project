@@ -8,7 +8,10 @@ public class AddSerialNumberHandler : AbstractHandler
     {
         if (request.SerialNumber != null)
         {
-            base.QueryMaker.AddFilter(f => f.SerialNumber == request.SerialNumber);
+            foreach (var data in request.SerialNumber)
+            {
+                base.QueryMaker.AddFilter(f => f.SerialNumber == data);    
+            }
             base.Handle(request);
         }
         else

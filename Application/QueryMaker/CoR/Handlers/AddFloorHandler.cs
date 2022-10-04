@@ -8,7 +8,10 @@ public class AddFloorHandler : AbstractHandler
     {
         if (request.Floor != null)
         {
-            base.QueryMaker.AddFilter(f => f.Floor == request.Floor);
+            foreach (var data in request.Floor)
+            {
+                base.QueryMaker.AddFilter(f => f.Floor == data);    
+            }
             base.Handle(request);
         }
         else

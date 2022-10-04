@@ -8,7 +8,10 @@ public class AddModelHandler : AbstractHandler
     {
         if (request.Model != null)
         {
-            base.QueryMaker.AddFilter(f => f.Model == request.Model);
+            foreach (var data in request.Model)  
+            {
+                base.QueryMaker.AddFilter(f => f.Model == data);    
+            }
             base.Handle(request);
         }
         else

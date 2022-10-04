@@ -19,6 +19,18 @@ public class ConcreteQueryMaker : QueryMaker<Domain.Entities.Item>
     {
         Queryable = Queryable.AsEnumerable().Where(filter).AsQueryable();
     }
+    
+    public void AddFilter(Func<Domain.Entities.Item, bool> filter, bool isOr)
+    {
+        if (isOr)
+        {
+            Queryable = Queryable.AsEnumerable().Where(filter).AsQueryable();
+        }
+        else
+        {
+            Queryable = Queryable.AsEnumerable().Where(filter).AsQueryable();
+        }
+    }
 
     public IQueryable<Domain.Entities.Item> ReturnQuery()
     {

@@ -8,7 +8,10 @@ public class AddVendorHandler : AbstractHandler
     {
         if (request.Vendor != null)
         {
-            base.QueryMaker.AddFilter(f => f.Vendor == request.Vendor);
+            foreach (var data in request.Vendor)
+            {
+                base.QueryMaker.AddFilter(f => f.Vendor == data);    
+            }
             base.Handle(request);
         }
         else

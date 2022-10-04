@@ -9,7 +9,10 @@ public class AddDescriptionHandler : AbstractHandler
     {
         if (request.Description != null)
         {
-            base.QueryMaker.AddFilter(f => f.Description == request.Description);
+            foreach (var data in request.Description)
+            {
+                base.QueryMaker.AddFilter(f => f.Description == data);    
+            }
             base.Handle(request);
         }
         else

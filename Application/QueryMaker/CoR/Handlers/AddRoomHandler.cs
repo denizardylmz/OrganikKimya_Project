@@ -8,7 +8,10 @@ public class AddRoomHandler : AbstractHandler
     {
         if (request.Room != null)
         {
-            base.QueryMaker.AddFilter(f => f.Room == request.Room);
+            foreach (var data in request.Room)
+            {
+                base.QueryMaker.AddFilter(f => f.Room == data);    
+            }
             base.Handle(request);
         }
         else

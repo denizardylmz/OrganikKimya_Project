@@ -7,12 +7,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Item.Quaries.GetItemByFilter;
 
-public class GetItemByFilterRequest : IRequest<ItemsVm>
+public class GetItemByFilterRequest : IRequest<ItemsResponse>
 {
+    public Dictionary<string, List<string>> Filters { get; set; }
 
-    public string? SerialNumber { get; set; }
-    public string? Description { get; set; }
-    public string? StockGroupNumber { get; set; }
+
+    public List<string>? SerialNumber { get; set; }
+    public List<string>? Description { get; set; }
+    public List<string>? StockGroupNumber { get; set; }
     
     public DateTime? PurchaseStartDate { get; set; }
     public DateTime? PurchaseEndDate { get; set; }
@@ -20,24 +22,24 @@ public class GetItemByFilterRequest : IRequest<ItemsVm>
     public DateTime? WarrantyStartDate { get; set; }
     public DateTime? WarrantyEndDate { get; set; }
     
-    public string? Floor { get; set; }
-    public string? Room { get; set; }
+    public List<string>? Floor { get; set; }
+    public List<string>? Room { get; set; }
     
-    public string? Model { get; set; }
-    public string? Brand { get; set; }
+    public List<string>? Model { get; set; }
+    public List<string>? Brand { get; set; }
     
-    public string? Vendor { get; set; }
+    public List<string>? Vendor { get; set; }
     
 }
 
-public class ItemsVm
+public class ItemsResponse
 {
     public bool isSucceed { get; set; }
     public List<Domain.Entities.Item> Items { get; set; }
 } 
 
 
-public class GetByFilterQueryHandler : IRequestHandler<GetItemByFilterRequest, ItemsVm>
+public class GetByFilterQueryHandler : IRequestHandler<GetItemByFilterRequest, ItemsResponse>
 {
 
     private readonly IApplicationDbContext _context;
@@ -47,19 +49,35 @@ public class GetByFilterQueryHandler : IRequestHandler<GetItemByFilterRequest, I
         _context = context;
     }
 
-    public async Task<ItemsVm> Handle(GetItemByFilterRequest request, CancellationToken cancellationToken)
+    public async Task<ItemsResponse> Handle(GetItemByFilterRequest request, CancellationToken cancellationToken)
     {
-
-        var queryMaker = new ConcreteQueryMaker(_context);
-
-        var resQuery = CoRMaker.Make(queryMaker, request); 
+        var query = _context.Items.AsQueryable();
         
-
-        var result = resQuery.ToList();
-        return new ItemsVm()
+        foreach (var pair in request.Filters)
         {
-            isSucceed = true && result.Count > 0,
-            Items = result
+            var property = pair.Key;
+            var values = pair.Value;
+            var parameter = Expression.Parameter(typeof(Domain.Entities.Item), "item");
+            var propertyAccess = Expression.MakeMemberAccess(parameter, typeof(Domain.Entities.Item).GetProperty(property));
+            var someValue = Expression.Constant(values, typeof(List<string>));
+            var containsMethod = typeof(List<string>).GetMethod("Contains", new[] { typeof(string) });
+            var containsMethodExp = Expression.Call(someValue, containsMethod, propertyAccess);
+            var lambda = Expression.Lambda<Func<Domain.Entities.Item, bool>>(containsMethodExp, parameter);
+            query = query.Where(lambda);
+            
+        }
+            
+        
+        //var queryMaker = new ConcreteQueryMaker(_context);
+
+        //var resQuery = CoRMaker.Make(queryMaker, request); 
+        
+        //var result = resQuery.ToList();
+        
+        return new ItemsResponse()
+        {
+            isSucceed = true,
+            Items = query.ToList()
         };
     }
 }
