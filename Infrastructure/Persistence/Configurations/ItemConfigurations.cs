@@ -9,13 +9,14 @@ public static class ItemConfigurations
     {
 
         modelBuilder.Entity<Item>()
-            .Property(p => p.Description).HasMaxLength(50).IsRequired(required:false);
+            .Property(p => p.Description).HasMaxLength(50);
         
         modelBuilder.Entity<Item>()
             .Property(p => p.SerialNumber).HasMaxLength(10).IsRequired();
         
         modelBuilder.Entity<Item>()
             .Property(p => p.StockGroupNumber).HasMaxLength(10).IsRequired();
+        
 
     }
 }

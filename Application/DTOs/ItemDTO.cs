@@ -1,19 +1,13 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
+namespace Application.DTOs;
 
-namespace Domain.Entities;
-
-public class Item : BaseEntity
+public class ItemDTO
 {
     public string SerialNumber { get; set; }
     public string Description { get; set; }
     
     public string StockGroupNumber { get; set; }
     
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime PurchaseDate { get; set; }
-    
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime WarrantyDate { get; set; }
     
     public string Room { get; set; }
@@ -23,5 +17,4 @@ public class Item : BaseEntity
     public string Brand { get; set; }
     
     public string Vendor { get; set; }
-
 }
