@@ -1,14 +1,10 @@
-
-using Application.Common;
 using Application.DTOs;
 using Application.Identity;
 using Application.Item.Quaries.GetItemByFilterOdata;
-using Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace WebAPI.Controllers
 {

@@ -10,6 +10,11 @@ public class UserLogOutHandler : IRequestHandler<UserLogOutRequest, int>
     private readonly SignInManager<AppUser> _signInManager;
 
 
+    public UserLogOutHandler(SignInManager<AppUser> signInManager)
+    {
+        _signInManager = signInManager;
+    }
+
     public async Task<int> Handle(UserLogOutRequest request, CancellationToken cancellationToken)
     {
         try

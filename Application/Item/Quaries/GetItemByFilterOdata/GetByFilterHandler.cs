@@ -6,12 +6,12 @@ using MediatR;
 
 namespace Application.Item.Quaries.GetItemByFilterOdata;
 
-public class GetByFilterHandler : IRequestHandler<GetByFilterRequest, List<ItemDTO>>
+public class GetByFilterHandlerOData : IRequestHandler<GetByFilterRequest, List<ItemDTO>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
 
-    public GetByFilterHandler(IApplicationDbContext context, IMapper mapper)
+    public GetByFilterHandlerOData(IApplicationDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

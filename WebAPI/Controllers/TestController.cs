@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("test")]
-        public async Task<GetItemsResponse> GetAll(GetItemsRequest request)
+        public async Task<GetAllItemsResponse> GetAll(GetAllItemsRequest request)
         {
             return await _mediator.Send(request);
         }

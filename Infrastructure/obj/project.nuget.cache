@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tUqwCsWfil8Nxq6aOsTgoNhIzPsTG2NJepuM9KpJZoOZ+NYmz4K0YIauhKvDJdiut+Kzv9nrE1xNv7EmANXSOA==",
+  "dgSpecHash": "/7TbV3vdRU3pQmbOHWGcxwG5/L740YsSNbyRactU6L3bqItZ+WyazIZ37+ULcwFgoS2QGk4tf7QlHMQEjoFLUg==",
   "success": true,
   "projectFilePath": "/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -41,9 +41,13 @@
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.caching.memory/6.0.1/microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.configuration/6.0.1/microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.configuration.fileextensions/6.0.0/microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.configuration.json/6.0.0/microsoft.extensions.configuration.json.6.0.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.fileproviders.abstractions/2.2.0/microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.fileproviders.abstractions/6.0.0/microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.fileproviders.physical/6.0.0/microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.filesystemglobbing/6.0.0/microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.hosting.abstractions/2.2.0/microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.identity.core/6.0.9/microsoft.extensions.identity.core.6.0.9.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.extensions.identity.stores/6.0.9/microsoft.extensions.identity.stores.6.0.9.nupkg.sha512",
@@ -73,8 +77,8 @@
     "/Users/denizyilmaz/.nuget/packages/system.security.cryptography.xml/4.5.0/system.security.cryptography.xml.4.5.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
-    "/Users/denizyilmaz/.nuget/packages/system.text.encodings.web/4.7.2/system.text.encodings.web.4.7.2.nupkg.sha512",
-    "/Users/denizyilmaz/.nuget/packages/system.text.json/4.6.0/system.text.json.4.6.0.nupkg.sha512"
+    "/Users/denizyilmaz/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

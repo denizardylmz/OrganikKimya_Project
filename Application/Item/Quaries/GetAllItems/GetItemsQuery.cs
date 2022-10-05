@@ -5,12 +5,12 @@ using MediatR;
 
 namespace Application.Item.Query.GetItems;
 
-public class GetItemsRequest : IRequest<GetItemsResponse>
+public class GetAllItemsRequest : IRequest<GetAllItemsResponse>
 {
     
 }
 
-public class GetItemsResponse
+public class GetAllItemsResponse
 {
     public bool IsSuccessful { get; set; }
     public List<ItemDTO> Items { get; set; }
@@ -18,20 +18,20 @@ public class GetItemsResponse
 
 
 
-public class GetItemQueryHandler : IRequestHandler<GetItemsRequest, GetItemsResponse>
+public class GetAllItemQueryHandler : IRequestHandler<GetAllItemsRequest, GetAllItemsResponse>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
-    public GetItemQueryHandler(IApplicationDbContext context, IMapper mapper)
+    public GetAllItemQueryHandler(IApplicationDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
     }
-    public async Task<GetItemsResponse> Handle(GetItemsRequest request, CancellationToken cancellationToken)
+    public async Task<GetAllItemsResponse> Handle(GetAllItemsRequest request, CancellationToken cancellationToken)
     {
         var items = _context.Items.ToList();
         
-        return new GetItemsResponse
+        return new GetAllItemsResponse
         {
             IsSuccessful = true ? items != null : false,
             Items = _mapper.Map<List<ItemDTO>>(items)

@@ -1,10 +1,10 @@
-using Application.Interfaces;
-using Domain.Entities;
-using Infrastructure.Persistence.Configurations;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence;
 
+/// <summary>
+///Old Db Context, Item context and Identity context has been merged.
+///
+/// 
 /**public class ApplicationDbContext : DbContext , IApplicationDbContext 
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
