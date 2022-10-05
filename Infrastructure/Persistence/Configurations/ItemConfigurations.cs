@@ -17,6 +17,11 @@ public static class ItemConfigurations
         modelBuilder.Entity<Item>()
             .Property(p => p.StockGroupNumber).HasMaxLength(10).IsRequired();
         
+        modelBuilder.Entity<Item>()
+            .Property(p => p.PurchaseDate );
+        
+        modelBuilder.Entity<Item>()
+            .Property(p => p.WarrantyDate );
 
     }
 }

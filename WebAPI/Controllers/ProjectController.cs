@@ -1,5 +1,7 @@
 
+using Application.Common;
 using Application.DTOs;
+using Application.Identity;
 using Application.Item.Quaries.GetItemByFilterOdata;
 using Infrastructure.Persistence;
 using MediatR;
@@ -22,32 +24,17 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("LogIn")]
-        public async Task<IActionResult> Login(UserLogInDTO dto)
+        public async Task<LogInResponse> Login(UserLogInRequest dto)
         {
-            var result = await _mediator.Send(dto);
-            if (result == SignInResult.Success)
-            {
-                return Ok("Login Success");
-            }
-            else
-            {
-                return BadRequest("Login Failed");
-            }
+            return await _mediator.Send(dto);
         }
 
 
         [HttpPost("LogOut")]
-        public async Task<IActionResult> LogOut([FromRoute]UserLogOutRequest request)
-        {
-            try
-            {
-                await _mediator.Send(request);
-                return Ok("Logout Success");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+        public async Task<IActionResult> LogOut([FromRoute] UserLogOutRequest request)
+        { 
+            await _mediator.Send(request);
+            return Ok("Logout successfully");
         }
 
         [Authorize(Roles = "Admin, User")]
@@ -55,7 +42,6 @@ namespace WebAPI.Controllers
         [HttpPost("GetByFilter")]
         public async Task<List<ItemDTO>> GetByFilter([FromRoute]GetByFilterRequest request)
         {
-            
             return await _mediator.Send(request);
         }
     }

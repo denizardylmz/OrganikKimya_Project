@@ -10,10 +10,8 @@ public class Item : BaseEntity
     
     public string StockGroupNumber { get; set; }
     
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime PurchaseDate { get; set; }
     
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime WarrantyDate { get; set; }
     
     public string Room { get; set; }

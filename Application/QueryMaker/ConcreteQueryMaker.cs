@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.QueryMaker;
 
+//This classes are not used in the project,
+//They'd writted while developing the project and I forgot to delete them. I will delete them in the next commit.
+
 public class ConcreteQueryMaker : QueryMaker<Domain.Entities.Item>
 {
     public IQueryable<Domain.Entities.Item> Queryable { get; set; }

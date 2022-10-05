@@ -1,3 +1,4 @@
+using Application.Common;
 using Application.DTOs;
 using Domain.Entities;
 using MediatR;
@@ -5,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Application.Identity;
 
-public class UserLoginHandler : IRequestHandler<UserLogInDTO, SignInResult>
+public class UserLoginHandler : IRequestHandler<UserLogInRequest, LogInResponse>
 {
     private readonly UserManager<AppUser> _userManager;
     private readonly SignInManager<AppUser> _signInManager;
@@ -18,7 +19,7 @@ public class UserLoginHandler : IRequestHandler<UserLogInDTO, SignInResult>
         _signInManager = signInManager;
     }
 
-    public async Task<SignInResult> Handle(UserLogInDTO request, CancellationToken cancellationToken)
+    public async Task<LogInResponse> Handle(UserLogInRequest request, CancellationToken cancellationToken)
     {
         var user = await _userManager.FindByNameAsync(request.Username);
 
@@ -26,8 +27,30 @@ public class UserLoginHandler : IRequestHandler<UserLogInDTO, SignInResult>
         {
             await _signInManager.SignOutAsync();
             var signInResult = await _signInManager.PasswordSignInAsync(user, request.Password, false, false);
-            return signInResult;
+            if (signInResult.Succeeded)
+            {
+                return new LogInResponse()
+                {
+                    Data = user,
+                    Message = signInResult.ToString(),
+                    ResponseType = ResponseType.Success
+                };    
+            }
+            else
+            {
+                return new LogInResponse()
+                {
+                    Data = null,
+                    Message = signInResult.ToString(),
+                    ResponseType = ResponseType.NotFound
+                };
+            }
+            
         }
-        return SignInResult.Failed;
+        return new LogInResponse()
+        {
+            Data = null,
+            Message = "User not found",
+        };
     }
 }

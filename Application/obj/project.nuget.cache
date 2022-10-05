@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ej/+T2okHoTwC9p8IdfMvs7106Dpbi9plystXct7t+2jbi2ntHSlZ0oDPkK6oi+1K/gfMyTCPo16Z5r9U+Tz9w==",
+  "dgSpecHash": "mQTF3aylZ9DYXF9UJpL4Pj3T/xM61DEd/Q0AQ18fWTRSM0izl1im9YsQh6YNSPMMMz79zeXmSLdKyGxZS/BjvQ==",
   "success": true,
   "projectFilePath": "/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Application/Application.csproj",
   "expectedPackageFiles": [
     "/Users/denizyilmaz/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "/Users/denizyilmaz/.nuget/packages/fluentvalidation/11.2.2/fluentvalidation.11.2.2.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/mediatr/11.0.0/mediatr.11.0.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.0.0/mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
