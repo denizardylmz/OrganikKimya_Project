@@ -1,10 +1,13 @@
+using Application.Common;
 using Application.Interfaces;
+using Application.Item.Commands.Validation;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 
 namespace Application.Item.CreateItem;
 
-public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand, int>
+public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand, CreateItemCommandResponse>
 {
     private readonly  IApplicationDbContext _context;
 
@@ -13,24 +16,38 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand, int>
         _context = context;
     }
 
-    public async Task<int> Handle(CreateItemCommand request, CancellationToken cancellationToken)
+    public async Task<CreateItemCommandResponse> Handle(CreateItemCommand request, CancellationToken cancellationToken)
     {
+        request.PurchaseDate = request.PurchaseDate.Date;
+
         var entity = new Domain.Entities.Item()
         {
             SerialNumber = request.SerialNumber,
             Description = request.Description,
             StockGroupNumber = request.StockGroupNumber,
             PurchaseDate = request.PurchaseDate,
-            WarrantyDate = request.WarrantyDate,
             Room = request.Room,
             Floor = request.Floor,
             Model = request.Model,
             Brand = request.Brand,
-            Vendor = request.Vendor
+            Vendor = request.Vendor,
+            WarrantyDate = request.WarrantyDate ?? request.PurchaseDate.AddYears(2)
         };
-
-        _context.Items.Add(entity);
-        await _context.SaveChangesAsync(cancellationToken);
-        return entity.Id;
+        try
+        {
+            _context.Items.Add(entity);
+            await _context.SaveChangesAsync(cancellationToken);
+            return new CreateItemCommandResponse()
+            {
+                Data = entity,
+                Message = "Item created successfully",
+                ResponseType = ResponseType.Success,
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

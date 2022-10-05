@@ -7,6 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Item.Quaries.GetItemByFilter;
 
+
+
+//This classes are not used in the project,
+//They'd writted while developing the project and I forgot to delete them. I will delete them in the next commit.
 public class GetItemByFilterRequest : IRequest<ItemsResponse>
 {
     public Dictionary<string, List<string>> Filters { get; set; }

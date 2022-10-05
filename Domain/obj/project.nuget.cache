@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2Rc+f3cEU98Lb4YKqmv3b52GcYrboLFQMBA5L0J8zNEFaGfmYv+ydzOE8/0ru7Slmr98IblMNM8WS8Nea+05fw==",
+  "dgSpecHash": "UP70wliCw9ABvb8ggJ0+rOecLCbo7EdSzPIPJaopjHIxP8q4/0SrrBWuHXkNzpfl/XTFoaeQ09qdmTi6xvNrjA==",
   "success": true,
   "projectFilePath": "/Users/denizyilmaz/RiderProjects/OrganikKimya.Project.Inventory.API/Domain/Domain.csproj",
   "expectedPackageFiles": [
+    "/Users/denizyilmaz/.nuget/packages/fluentvalidation/11.2.2/fluentvalidation.11.2.2.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/denizyilmaz/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

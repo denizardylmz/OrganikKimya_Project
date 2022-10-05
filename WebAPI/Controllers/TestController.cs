@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Common;
 using Application.DTOs;
+using Application.Extensions;
 using Application.Interfaces;
 using Application.Item.CreateItem;
 using Application.Item.Quaries.GetItemByFilter;
 using Application.Item.Query.GetItems;
 using Domain.Entities;
+using FluentValidation;
 using Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -29,19 +32,21 @@ namespace WebAPI.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IdentityAppDb _context;
+        private readonly IValidator<CreateItemCommand> _validator;
 
-        public TestController(IMediator mediator, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IdentityAppDb context)
+        public TestController(IMediator mediator, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IdentityAppDb context, IValidator<CreateItemCommand> validator)
         {
             _mediator = mediator;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _context = context;
+            _validator = validator;
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<ActionResult<int>> Create(CreateItemCommand command)
+        public async Task<ActionResult<CreateItemCommandResponse>> Create(CreateItemCommand command)
         {
             return await _mediator.Send(command);
         }
@@ -85,7 +90,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("Login")]
-        public async Task<IActionResult> LogIn(UserLogInDTO dto)
+        public async Task<IActionResult> LogIn(UserLogInRequest dto)
         {
             AppUser user = await _userManager.FindByNameAsync(dto.Username);
 
